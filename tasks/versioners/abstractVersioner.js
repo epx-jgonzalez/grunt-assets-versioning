@@ -34,6 +34,9 @@ function AbstractVersioner(options, taskData) {
    * @type {Array.<{version, originalPath: string, versionedPath: string}>}
    */
   this.versionsMap = [];
+  if (this.options.versionsMapDataFile != null && grunt.file.exists(this.options.versionsMapDataFile)) {
+    this.versionsMap = grunt.file.readJSON(options.versionsMapDataFile);
+  }
 
   /**
    * Get one of the tagger functions: hash or date

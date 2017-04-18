@@ -497,6 +497,7 @@ module.exports = function(grunt) {
     'assets_versioning:options_versionsMapTemplateFile',
     'assets_versioning:options_versionsMapTemplateString',
     'assets_versioning:options_versionsMapTemplateFunction',
+    'assets_versioning:options_versionsMapDataFile',
     'assets_versioning:files_compact_format',
     'assets_versioning:files_object_format',
     'assets_versioning:files_array_format',
