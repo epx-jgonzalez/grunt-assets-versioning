@@ -1,5 +1,5 @@
 # grunt-assets-versioning
-[![Build Status](https://travis-ci.org/theasta/grunt-assets-versioning.svg?branch=master)](https://travis-ci.org/theasta/grunt-assets-versioning) [![NPM version](https://badge.fury.io/js/grunt-assets-versioning.svg)](http://badge.fury.io/js/grunt-assets-versioning) [![dependencies](https://david-dm.org/theasta/grunt-assets-versioning.svg)](https://david-dm.org/theasta/grunt-assets-versioning.svg) [![devDependencies](https://david-dm.org/theasta/grunt-assets-versioning/dev-status.svg)](https://david-dm.org/theasta/grunt-assets-versioning/dev-status.svg) [![peerDependencies](https://david-dm.org/theasta/grunt-assets-versioning/peer-status.svg)](https://david-dm.org/theasta/grunt-assets-versioning/peer-status.svg) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/theasta/grunt-assets-versioning?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/cjbarth/grunt-assets-versioning.svg?branch=master)](https://travis-ci.org/cjbarth/grunt-assets-versioning) [![GitHub version](https://badge.fury.io/gh/cjbarth%2Fgrunt-assets-versioning.svg)](https://badge.fury.io/gh/cjbarth%2Fgrunt-assets-versioning) [![NPM version](https://badge.fury.io/js/grunt-assets-versioning.svg)](http://badge.fury.io/js/grunt-assets-versioning) [![dependencies](https://david-dm.org/cjbarth/grunt-assets-versioning.svg)](https://david-dm.org/cjbarth/grunt-assets-versioning) [![devDependencies](https://david-dm.org/cjbarth/grunt-assets-versioning/dev-status.svg)](https://david-dm.org/cjbarth/grunt-assets-versioning/dev-status) [![peerDependencies](https://david-dm.org/cjbarth/grunt-assets-versioning/peer-status.svg)](https://david-dm.org/cjbarth/grunt-assets-versioning/peer-status)
 
 > Versioning static assets with Grunt
 
@@ -109,7 +109,7 @@ By default, when no valid template is indicated, the task will output a json fil
 The lo-dash template may reuse the keys from the version maps (version, originalPath, versionedPath).
 Here's an example of a lo-dash template to generate a php dictionary.
 
-```php
+```
 <?php
 
 class MyDict
@@ -140,7 +140,7 @@ This gives you the possibility to trim the path output in the version map.
 
 For example, if you set options.versionsMapTrimPath to be 'super/long/path/to/', instead of getting this map:
 
-```
+```js
 [
   {
     version: '3d04f375',
@@ -158,7 +158,7 @@ For example, if you set options.versionsMapTrimPath to be 'super/long/path/to/',
 you will get this one:
 
 
-```
+```js
 [
   {
     version: '3d04f375',
@@ -189,7 +189,7 @@ Combined with the skipExisting option, it allows to speed up the deployment proc
 
 If ever you're trying to version a task that doesn't expose all its source files but only an entry point (less, requirejs), you should set the post options to true.
 
-```
+```js
 less: {
   production: {
     files: {
