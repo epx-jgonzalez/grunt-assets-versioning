@@ -192,20 +192,19 @@ AbstractVersioner.prototype.createPreVersioningSurrogateTask = function (task) {
     // push to the map of versions
 
     var versionedPath = destFilePath.replace(this.options.versionsMapTrimPath, '');
-    if (_.contains(allVersionedPath, versionedPath)) {
+    if (_.includes(allVersionedPath, versionedPath)) {
       grunt.fail.warn("Duplicate versioned path detected: '" + versionedPath +"'.");
     } else {
       if (this.options.versionsMapFilesAutoDelete === true) {
-        // check to see if we should delete this file from the map
-        var filesToDelete = this.versionsMap.filter(function (item) {
-          return path.join(this.options.versionsMapTrimPath, item.originalPath) === taskFilesObj.dest;
-        });
-        filesToDelete.forEach(function (item) {
-          grunt.file.delete(item.versionedPath);
-        });
+        var versionsMapTrimPath = this.options.versionsMapTrimPath;
+        // delete items from the map and file system that we are about to re-create
         this.versionsMap = this.versionsMap.filter(function (item) {
-          // only keep mappings that exist
-          return grunt.file.exists(item.versionedPath);
+          if (path.join(versionsMapTrimPath, item.originalPath) === taskFilesObj.dest) {
+            grunt.file.delete(path.join(versionsMapTrimPath, item.versionedPath));
+            return false;
+          } else {
+            return true;
+          }
         });
       }
       allVersionedPath.push(versionedPath);
