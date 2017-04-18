@@ -121,6 +121,10 @@ class MyDict
   );
 ```
 
+#### options.versionsMapDataFile
+Type: `String`
+Specifying a file here will store the internal version data in this file for use on subsequent runs.
+
 #### options.versionsMapTrimPath
 Type: `String`
 This gives you the possibility to trim the path output in the version map.
@@ -238,6 +242,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+* 2017-04-10   v1.2.0   Add support for persisting version data between runs
 * 2017-04-10   v1.1.0   Add support for templates from strings
 * 2015-01-29   v1.0.4   Fix MomentJS warning
 * 2015-01-28   v1.0.3   Bug fixing.
