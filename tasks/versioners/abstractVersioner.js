@@ -2,6 +2,7 @@
  * @module versioners/AbstractVersioner
  */
 
+var path = require('path');
 var grunt = require('grunt');
 var taggers = require('../taggers');
 var _ = require('lodash');
@@ -194,6 +195,19 @@ AbstractVersioner.prototype.createPreVersioningSurrogateTask = function (task) {
     if (_.contains(allVersionedPath, versionedPath)) {
       grunt.fail.warn("Duplicate versioned path detected: '" + versionedPath +"'.");
     } else {
+      if (this.options.versionsMapFilesAutoDelete === true) {
+        // check to see if we should delete this file from the map
+        var filesToDelete = this.versionsMap.filter(function (item) {
+          return path.join(this.options.versionsMapTrimPath, item.originalPath) === taskFilesObj.dest;
+        });
+        filesToDelete.forEach(function (item) {
+          grunt.file.delete(item.versionedPath);
+        });
+        this.versionsMap = this.versionsMap.filter(function (item) {
+          // only keep mappings that exist
+          return grunt.file.exists(item.versionedPath);
+        });
+      }
       allVersionedPath.push(versionedPath);
       this.versionsMap.push({
         version: version,

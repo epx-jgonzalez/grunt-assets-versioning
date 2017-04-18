@@ -209,6 +209,7 @@ module.exports = function(grunt) {
 	      options: {
 		      delimiters                 : 'altDelimiters',
               versionsMapDataFile        : 'tmp/options_versionsMapDataFile.json',
+		      versionsMapFilesAutoDelete : true,
 		      versionsMapTrimPath        : 'tmp/options_versionsMapDataFile/'
 	      }
       },
