@@ -169,17 +169,27 @@ exports.assets_versioning = {
       test.done();
   },
 
-  options_versionsMapTemplateFunction: function (test) {
-      test.expect(1);
+	options_versionsMapTemplateFunction: function (test) {
+		test.expect(1);
 
-      var actual = grunt.util.normalizelf(grunt.file.read('tmp/options_versionsMapTemplateFunction.php'));
-      var expected = grunt.util.normalizelf(grunt.file.read('test/expected/output/dict.php'));
-      test.equal(actual, expected, 'should create a file using a template returned by the function and the versions map data');
+		var actual = grunt.util.normalizelf(grunt.file.read('tmp/options_versionsMapTemplateFunction.php'));
+		var expected = grunt.util.normalizelf(grunt.file.read('test/expected/output/dict.php'));
+		test.equal(actual, expected, 'should create a file using a template returned by the function and the versions map data');
 
-      test.done();
-  },
+		test.done();
+	},
 
-  files_compact_format: function(test) {
+	options_versionsMapDataFile: function (test) {
+		test.expect(1);
+
+		var actual = grunt.util.normalizelf(grunt.file.read('tmp/options_versionsMapDataFile.json'));
+		var expected = grunt.util.normalizelf(grunt.file.read('test/expected/output/options_output_trim.json'));
+		test.equal(actual, expected, 'should create a file data file representing the currently mapped files');
+
+		test.done();
+	},
+
+	files_compact_format: function(test) {
     test.expect(2);
 
     test.ok(!grunt.file.exists('tmp/js/files_compact_format.js'), 'should not create an un-versioned file');

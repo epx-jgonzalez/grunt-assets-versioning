@@ -280,6 +280,10 @@ AbstractVersioner.prototype.saveVersionsMap = function () {
     grunt.config.set(this.isPostVersioningTask + '.versionsMap', this.versionsMap);
   }
 
+  if (typeof this.options.versionsMapDataFile === 'string') {
+    grunt.file.write(this.options.versionsMapDataFile, JSON.stringify(this.versionsMap));
+  }
+
   grunt.log.debug("Versions Map: ", this.versionsMap);
 };
 

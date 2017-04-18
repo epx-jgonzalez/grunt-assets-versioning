@@ -199,6 +199,19 @@ module.exports = function(grunt) {
               versionsMapTrimPath : 'tmp/options_versionsMapTemplate/'
           }
       },
+      options_versionsMapDataFile: {
+	      files: [{
+		      expand : true,
+		      cwd    : "test/fixtures/images/",
+		      src    : ['**/*.png', '**/*.jpg', '**/*.gif'],
+		      dest   : "tmp/options_versionsMapDataFile/"
+	      }],
+	      options: {
+		      delimiters                 : 'altDelimiters',
+              versionsMapDataFile        : 'tmp/options_versionsMapDataFile.json',
+		      versionsMapTrimPath        : 'tmp/options_versionsMapDataFile/'
+	      }
+      },
       files_compact_format: {
         src: [
           'test/fixtures/js/file1.js',
