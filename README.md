@@ -123,6 +123,7 @@ class MyDict
 
 #### options.versionsMapDataFile
 Type: `String`
+
 Specifying a file here will store the internal version data in this file for use on subsequent runs.
 
 #### options.versionsMapFilesAutoDelete
