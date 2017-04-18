@@ -266,14 +266,12 @@ AbstractVersioner.prototype.saveVersionsMap = function () {
 		// Are we generating a json file or are we using a template file?
 		var templateFile = this.options.versionsMapTemplate;
 		var template;
-		console.log(typeof templateFile);
 		if (typeof templateFile === "function") {
 			// This could be a function that returns a string
 			template = templateFile();
 			template = grunt.util.normalizelf(decodeURI(template));
 		}
 		if (typeof templateFile === "string") {
-			console.log(templateFile);
 			if (!grunt.file.exists(templateFile)) {
 				// This could be a template
 				template = grunt.util.normalizelf(decodeURI(templateFile));
